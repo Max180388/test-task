@@ -48,16 +48,6 @@ h1 {
 	gap: 50px;
 }
 
-.converter__wrap{
-	padding: 15px;
-	border-radius: 20px;
-background-color: #d8d8d8;
-}
-
-.converter__text{
-	font-size: 20px;
-}
-
 #app {
 	height: 100vh;
 	margin: 0 auto;

@@ -1,18 +1,25 @@
 <script>
+import { createEventDispatcher } from "svelte";
 import {currenciesList} from '../constants.js'
 let currencies;
+// export let currencyCode = selected.id;
+
+const dispatch = 	createEventDispatcher();
 
 currenciesList.subscribe(value => {currencies = value});
-
 let selected = currencies[0];
-export let test = selected.id;
 
+const getCurrencyCode = () => {
+	dispatch('getCode', {
+		currencyCode: selected.id
+		});
+}
 </script>
 
 <form>
 	<select
 	bind:value={selected}
-
+	on:change={getCurrencyCode}
 	>
 
 		{#each currencies as currency}

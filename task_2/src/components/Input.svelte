@@ -1,14 +1,23 @@
 <script>
+	import { createEventDispatcher } from "svelte";
 	export let value = 1;
-	export let test;
+	// export let currencyCode;
 
+	const dispatch = 	createEventDispatcher();
+
+	const conversion = () => {
+		dispatch('calculation', {
+			myCurrency: value ,
+			wantСurrency: value,
+		});
+	}
 
 </script>
 
 <label>
-	<input type="number" bind:value />
+	<input on:change={conversion} type="number" bind:value placeholder='Введите число' />
 </label>
-<p>{test}</p>
+<!-- <p>{currencyCode}</p> -->
 
 <style>
 	input {

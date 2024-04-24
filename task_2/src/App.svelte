@@ -1,26 +1,41 @@
 <script>
 	import apiLogo from "./assets/exchange-rate-api.png";
-	import Currency from "./components/Currency.svelte";
-	import Input from "./components/Input.svelte";
-	// import Api from './components/Api.svelte';
+	import Api from "./components/Api.svelte";
+	import CurrencyBlock from "./components/CurrencyBlock.svelte";
+	let ka = 100;
+	$: my = Number;
+	$: want = Number;
+	$: myCode = 'RUB';
 
-	let test;
 
+
+	const getMyCurrencyCode = (evt) => {
+		myCode = evt.detail.currencyCode;
+		console.log(myCode)
+	};
+
+	const getWantСurrency = (evt) => {
+		want = evt.detail.myCurrency * ka;
+	};
+
+	const getMyCurrency = (evt) => {
+		my = evt.detail.wantСurrency / ka;
+	};
 </script>
 
 <main>
-	<h1>Конвертации валют</h1>
+	<h1>Конвертатор валют</h1>
 	<div class="converter">
-		<div class="converter__wrap">
-			<p class="converter__text">У меня есть</p>
-			<Currency bind:test />
-			<Input value={5 + 2} bind:test />
-		</div>
-		<div class="converter__wrap">
-			<p class="converter__text">Хочу приобрести</p>
-			<Currency bind:test />
-			<Input value={5 +12} bind:test />
-		</div>
+		<CurrencyBlock
+			on:calculation={getWantСurrency}
+			valueCourse={my}
+			text={"У меня есть"} on:getCode={getMyCurrencyCode}
+		/>
+		<CurrencyBlock
+			on:calculation={getMyCurrency}
+			valueCourse={want}
+			text={"Хочу приобрести"}
+		/>
 	</div>
 </main>
 <footer>
