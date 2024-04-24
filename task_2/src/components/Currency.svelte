@@ -2,7 +2,6 @@
 import { createEventDispatcher } from "svelte";
 import {currenciesList} from '../constants.js'
 let currencies;
-// export let currencyCode = selected.id;
 
 const dispatch = 	createEventDispatcher();
 

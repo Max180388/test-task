@@ -1,7 +1,6 @@
 <script>
 	import { createEventDispatcher } from "svelte";
 	export let value = 1;
-	// export let currencyCode;
 
 	const dispatch = 	createEventDispatcher();
 
@@ -15,9 +14,8 @@
 </script>
 
 <label>
-	<input on:change={conversion} type="number" bind:value placeholder='Введите число' />
+	<input on:change={conversion} type="number" bind:value placeholder='Введите число'/>
 </label>
-<!-- <p>{currencyCode}</p> -->
 
 <style>
 	input {

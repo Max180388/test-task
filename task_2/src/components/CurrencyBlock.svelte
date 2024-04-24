@@ -4,15 +4,14 @@
 
 	export let text = '';
 	export let valueCourse = 8;
-	let currencyCode = "RUB";
 
 </script>
 
 
 	<div class="converter__wrap">
 		<p class="converter__text">{text}</p>
-		<Currency on:getCode bind:currencyCode />
-		<Input on:calculation value={valueCourse} bind:currencyCode />
+		<Currency on:getCode/>
+		<Input on:calculation value={valueCourse}/>
 	</div>
 
 <style>
