@@ -56,7 +56,6 @@
 
 	const getMyCurrencyCode = (evt) => {
 		myCode = evt.detail.currencyCode;
-		console.log(want)
 		getRates().then(() => {
 			getWantValue();
 		});
@@ -65,20 +64,17 @@
 	const getWantCurrencyCode = (evt) => {
 		wantCode = evt.detail.currencyCode;
 		getReceivedRates();
-		console.log(rateСoefficient);
 		getMyValue();
 	};
 
 	const getWantСurrency = (evt) => {
 		want = evt.detail.myCurrency * rateСoefficient;
 		my = evt.detail.myCurrency;
-		console.log(want);
 	};
 
 	const getMyCurrency = (evt) => {
 		my = evt.detail.wantСurrency / rateСoefficient;
 		want = evt.detail.wantСurrency;
-		console.log(want);
 	};
 </script>
 
